@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans text-neutral-900 antialiased;
+  }
+}
+
+@layer components {
+  /* 우측 화살표가 붙은 둥근 버튼 (소스의 arrow-btn 스타일) */
+  .btn-pill {
+    @apply relative inline-flex items-center gap-3 rounded-full bg-neutral-100 py-4 pl-6 pr-12 font-bold transition hover:bg-neutral-200;
+  }
+  .btn-pill::after {
+    content: '→';
+    @apply absolute right-5 text-neutral-500;
+  }
+
+  /* 섹션 공통 좌우 여백 */
+  .section-x {
+    @apply px-4 md:px-10 lg:px-24 xl:px-40;
+  }
+}
+
+/* 히어로 슬라이더 페이드 */
+@keyframes heroFade {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  50%,
+  95% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
